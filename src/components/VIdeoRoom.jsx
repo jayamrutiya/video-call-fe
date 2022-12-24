@@ -23,7 +23,7 @@ var remoteUsers = {};
 var options = {
   appid: "95d9004c9f094310b42333d76f3e5b60",
   channel: "Test",
-  uid: null,
+  uid: uuidv4(),
   token:
     "007eJxTYJg89egNo++mRUw6QopHv7y2K24sOXLQ9lrRBK6b3y+fXLpIgcHSNMXSwMAk2TLNwNLE2NAgycTI2Ng4xdwszTjVNMnMYMuEJckNgYwMsrv+MzMyQCCIz8IQklpcwsAAAMfEIUc=",
   accountName: "A",
@@ -75,7 +75,7 @@ export const VideoRoom = () => {
     [options.uid, localTracks.audioTrack, localTracks.videoTrack] = Promise.all(
       [
         // join the channel
-        client.join(options.appid, options.channel, options.token || null),
+        client.join(options.appid, options.channel, options.token, options.uid),
         // create local tracks, using microphone and camera
         AgoraRTC.createMicrophoneAudioTrack({ AEC: true, ANS: true }),
         AgoraRTC.createCameraVideoTrack(),

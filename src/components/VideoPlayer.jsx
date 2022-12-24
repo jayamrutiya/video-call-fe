@@ -1,5 +1,4 @@
 import { useEffect, useRef } from "react";
-
 export const VideoPlayer = ({ user }) => {
   const ref = useRef();
   useEffect(() => {
@@ -7,7 +6,8 @@ export const VideoPlayer = ({ user }) => {
   });
   return (
     <div>
-      Uid: {user.uid}
+      Name: {user.accountName}
+      <br />
       <div ref={ref} style={{ width: "200px", height: "200px" }}></div>
     </div>
   );
